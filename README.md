@@ -32,5 +32,10 @@ Results of the generation are exported back to CSV files and uploaded to Arcadia
    Run `3-risk-upload.sh` to push generated CSV files for data quality risk assessment to Arcadia.
    Note there are a few views being created within the script. Also note SSH access will require Codeabovelab keys for access. 
     
-
+4. If needed SQL scripts in /sql subfolder could be customized. Specifically a `prepare-sample-data.sql` file has the future data generation
+call at the bottom which you can set to a larger time frame for example.
+   ```
+   --generate allocation records for 60 days in future starting 2 days before now
+   select sample_data(60, (now() - '2 days'::interval)::date);
+   ```
 
